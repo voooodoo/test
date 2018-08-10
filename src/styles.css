@@ -1,4 +1,5 @@
-.form-wrapper {
+.form-wrapper,
+.books-list-wrapper {
   max-width: 600px;
   margin: 0 auto;
   padding: .5rem 1rem;
@@ -8,3 +9,13 @@
   padding: 30px;
   width: 100%;
 }
+
+li.book-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.list-item-btn {
+  cursor: pointer;
+}
+
