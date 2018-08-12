@@ -1,0 +1,47 @@
+<form [formGroup] = "form" (ngSubmit)="onSubmit()">
+
+    <h3 class="mb-4">Book Info</h3>
+
+    <div class="form-group">
+      <label for="author">Author</label>
+      <input class="form-control" id="author" formControlName="author">
+    </div>
+
+    <div class="form-group">
+      <label for="title">Title</label>
+      <input class="form-control" id="title" formControlName="title">
+    </div>
+
+    <div class="form-group">
+      <label for="isbn">ISBN</label>
+      <input class="form-control" id="isbn" formControlName="isbn">
+    </div>
+
+    <div class="form-group">
+      <label for="pages">Number of Pages</label>
+      <input type="number" class="form-control" id="pages" formControlName="pages">
+    </div>
+
+    <app-select [form] = "form" [item] = "formatsData" [nameControl]="'Format'"></app-select>
+    <div class="form-group">
+        <label for="description">Description</label>
+        <textarea class="form-control" id="description" rows="3" formControlName="description"></textarea>
+    </div>
+    <div class="form-group">
+        <label for="price">Price</label>
+        <input class="form-control" id="price" formControlName="price" type="number">
+    </div>
+
+    <hr class="m-1 mb-5 mt-5">
+
+    <h3 class="mb-4">Publisher Info</h3>
+    <app-select [form] = "form" [item] = "countriesData" [nameControl]="'Country'"></app-select>
+    <app-select [form] = "form" [item] = "citiesData" [nameControl]="'City'"></app-select>
+    <app-select [form] = "form" [item] = "publishersData" [nameControl]="'Company'"></app-select>
+
+    <button type="submit" class="btn btn-primary mt-4"
+    [disabled]="form.invalid"
+    >Submit
+    </button>
+
+  </form>

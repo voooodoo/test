@@ -1,6 +1,7 @@
 <div class="form-wrapper">
-
-  <form>
+  <app-form></app-form>
+  <!--
+  <form [formGroup] = "form" ng-submit="onSummit()">
 
     <h3 class="mb-4">Book Info</h3>
 
@@ -76,8 +77,11 @@
       </select>
     </div>
 
-    <button type="submit" class="btn btn-primary mt-4">Submit</button>
+    <button type="submit" class="btn btn-primary mt-4"
+    [disabled] = "selectedForm.invalid"
+    >Submit
+    </button>
 
   </form>
-
+-->
 </div>
