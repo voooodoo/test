@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute} from '@angular/router';
 
 @Component({
   selector: 'app-book',
@@ -7,10 +8,12 @@ import { Component, OnInit } from '@angular/core';
 })
 export class BookComponent implements OnInit {
 
-  constructor() { }
+  id: number;
+  constructor(private activateRoute: ActivatedRoute){ 
+    this.id = activateRoute.snapshot.params['id'];
+  }
 
-  ngOnInit() {
-    
+  ngOnInit() {  
   }
 
   

@@ -8,9 +8,9 @@
     class="list-group-item book-item"
     ><span><b>{{book.title}}. </b> {{book.author}}</span>
     <button 
-      (click)= "addBook(book)"
       type="button" 
       class="btn btn-success list-item-btn"
+      [routerLink]="['/book', book.id]"
     >add</button>
     </li>
   </ul>

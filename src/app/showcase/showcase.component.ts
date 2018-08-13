@@ -23,8 +23,4 @@ export class ShowcaseComponent implements OnInit {
   storeDataBooks(data) {
     this.dataBooks=data
   }
-
-  addBook(book) {
-    console.log(book);
-  }
 }
