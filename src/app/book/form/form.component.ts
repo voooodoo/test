@@ -99,7 +99,6 @@ defaultValue:any;
     this.booksData = data;
     if(this.id) {
       let book = this.booksData[this.id-1];
-      console.log(book);
       this.form.controls['author'].setValue(book.author);
       this.form.controls['title'].setValue(book.title);
       this.form.controls['isbn'].setValue(book.isbn);
@@ -108,10 +107,7 @@ defaultValue:any;
       this.form.controls['price'].setValue(book.price);
     }
   }
-
-  
-
-  onSubmit() {
-    console.log(this.form);
+  onSubmit(form) {
+    console.log(form);
   }
 }
