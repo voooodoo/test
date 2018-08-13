@@ -9,7 +9,8 @@ import { HttpService } from '../../http.service';
 })
 export class FormComponent implements OnInit {
 
-@Input() id:number;
+@Input() id:any;
+
 urlFormats: string;
 formatsData: any[];
 
@@ -37,48 +38,61 @@ defaultValue:any;
     }
 
   ngOnInit() {
+    this.httpService.getData(this.urlBooks).subscribe((data:any[]) => this.storeBooksData(data) );
     this.httpService.getData(this.urlFormats).subscribe((data:any[]) => this.storeFormatsData(data) );
     this.httpService.getData(this.urlCountries).subscribe((data:any[]) => this.storeCountriesData(data) );
     this.httpService.getData(this.urlCities).subscribe((data:any[]) => this.storeCitiesData(data) );
     this.httpService.getData(this.urlPublishers).subscribe((data:any[]) => this.storePublishersData(data) ); 
-    this.httpService.getData(this.urlBooks).subscribe((data:any[]) => this.storeBooksData(data) );
+    
 
     this.form = this.fb.group({
-      author:[''],
-      title:[''],
-      isbn:[''],
-      pages: [''],
-      Format: [''],
-      description: [''],
-      price: [''],
-      Country: [''],
-      City: [''],
-      Company:[''] 
+      author:['', Validators.required],
+      title:['',  Validators.required],
+      isbn:['', Validators.required],
+      pages: ['',Validators.required],
+      Format: ['', Validators.required],
+      description: ['',Validators.required],
+      price: ['', Validators.required],
+      Country: ['', Validators.required],
+      City: ['', Validators.required],
+      Company:['', Validators.required] 
     })
   }
 
   storeFormatsData (data) {
     this.formatsData = data;
     if(this.id) {
-      let format = this.formatsData[this.id-1];
-      this.form.controls['Format'].setValue(format.name);
+      let formatId = this.booksData[this.id-1].formatId;
+      let format = this.formatsData[formatId-1].name;
+      this.form.controls['Format'].setValue(format);
     }
   }
 
   storeCountriesData (data) {
     this.countriesData = data;
     if(this.id) {
-      let country = this.countriesData[this.id-1];
-      this.form.controls['Country'].setValue(country.name);
+        let countryId = this.booksData[this.id-1].countryId;
+        let country = this.countriesData[countryId-1].name;  
+        this.form.controls['Country'].setValue(country);
     }
   }
 
   storeCitiesData (data) {
     this.citiesData = data;
+    if(this.id) {
+      let cityId = this.booksData[this.id-1].cityId;
+      let city = this.citiesData[cityId-1].name;
+      this.form.controls['City'].setValue(city);
+    }
   }
 
   storePublishersData (data) {
     this.publishersData = data;
+    if(this.id) {
+      let companyId = this.booksData[this.id-1].companyId;
+      let company = this.publishersData[companyId-1].name;
+      this.form.controls['Company'].setValue(company);
+    }
   }
 
   storeBooksData(data) {

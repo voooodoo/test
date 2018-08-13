@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute} from '@angular/router';
+import {Subscription} from 'rxjs';
 
 @Component({
   selector: 'app-book',
@@ -8,9 +9,10 @@ import { ActivatedRoute} from '@angular/router';
 })
 export class BookComponent implements OnInit {
 
-  id: number;
+  id: any;
+  private subscription: Subscription;
   constructor(private activateRoute: ActivatedRoute){ 
-    this.id = activateRoute.snapshot.params['id'];
+    this.subscription = activateRoute.params.subscribe(params=>this.id=params['id'])
   }
 
   ngOnInit() {  
