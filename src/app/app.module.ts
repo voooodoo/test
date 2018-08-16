@@ -13,6 +13,7 @@ import { SelectComponent } from './book/form/select/select.component';
 import { NavigationComponent } from './navigation/navigation.component';
 import { ShowcaseComponent } from './showcase/showcase.component';
 import { SearchComponent } from './search/search.component';
+import { BookListItem } from './book-list-item/book-list-item.component';
 
 @NgModule({
   declarations: [
@@ -22,7 +23,8 @@ import { SearchComponent } from './search/search.component';
     ShowcaseComponent,
     SearchComponent,
     FormComponent,
-    SelectComponent
+    SelectComponent,
+    BookListItem
   ],
   imports: [
     AppRoutingModule,

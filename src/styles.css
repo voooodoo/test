@@ -10,13 +10,9 @@
   width: 100%;
 }
 
-li.book-item {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
 .list-item-btn {
   cursor: pointer;
+  margin-top:20px;
 }
 
 input.ng-invalid.ng-touched {

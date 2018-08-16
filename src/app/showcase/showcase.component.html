@@ -1,17 +1,15 @@
 <div class="container">
   <h3 class="text-center">List Of Books</h3>
+      <div class="books-list-wrapper">
+    <ul class="list-group">
+      <li *ngFor = "let book of dataBooks" class="list-group-item">
+        <app-book-list-item [book]="book"></app-book-list-item>
+      <button 
+        type="button" 
+        class="btn btn-success list-item-btn"
+        [routerLink]="['/book', book.id]"
+      >add</button>
+      </li>
+    </ul>
 </div>
-
-<div class="books-list-wrapper">
-  <ul class="list-group">
-    <li *ngFor = "let book of dataBooks"
-    class="list-group-item book-item"
-    ><span><b>{{book.title}}. </b> {{book.author}}</span>
-    <button 
-      type="button" 
-      class="btn btn-success list-item-btn"
-      [routerLink]="['/book', book.id]"
-    >add</button>
-    </li>
-  </ul>
-</div> 
+</div>

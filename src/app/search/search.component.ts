@@ -9,25 +9,43 @@ import { FormGroup, FormBuilder } from '@angular/forms';
 })
 export class SearchComponent implements OnInit {
 
-  urlFormats: string;
-  formatsData: any[];
-
+  data = {
+    books: {
+      url: '',
+      data: []
+    },
+    formats: {
+      url: '',
+      data:[]
+    } 
+  }
+  
   searchForm:FormGroup;
 
   constructor(private fb:FormBuilder, private httpService: HttpService) {
-    this.urlFormats = 'http://localhost:3004/formats';
+    this.data.books.url = 'http://localhost:3004/books';
+    this.data.formats.url = 'http://localhost:3004/formats';
    }
 
   ngOnInit() {
-    this.httpService.getData(this.urlFormats).subscribe((data:any[]) => this.storeFormatsData(data) );
+    for(let item in this.data) {
+      let elem = this.data[item];
+      this.httpService.getData(elem.url).subscribe((data:any[]) => this.setData(elem, data))
+    }
 
     this.searchForm = this.fb.group({
-      format:['']
+      author: [''],
+      title:[''],
+      format:[''],
+      isbn:[''],
+      pageMin: [''],
+      pageMax: [''],
+      priceMin: [''],
+      priceMax: ['']
     })
   }
 
-  storeFormatsData (data) {
-    this.formatsData = data;
+  setData(target, data) {
+    target.data = data;
   }
-
 }
