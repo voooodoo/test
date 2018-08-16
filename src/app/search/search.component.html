@@ -101,12 +101,9 @@
 
     <div class="col-xs-8">
       <h3 class="mb-4">List of Matched Books</h3>
-      
       <ul class="list-group">
-        <app-book-list-item *ngFor = "let book of data.books.data" [book]="book"></app-book-list-item>
+        <app-book-list-item *ngFor = "let book of result" [book]="book"></app-book-list-item>
       </ul>
-    
-    
     </div>
 
   </div>
