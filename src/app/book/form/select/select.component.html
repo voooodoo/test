@@ -1,14 +1,14 @@
 <div [formGroup]="form" class="form-group">  
-    <label for="{{nameControl}}">{{nameControl}}</label>
+    <label for="{{nameControl}}">{{nameControl|titlecase}}</label>
     <select 
       class="form-control" 
       id="{{nameControl}}" 
       formControlName="{{nameControl}}"
     >
       <ng-container *ngFor="let option of item">
-        <option
-         value="{{option.name}}" 
-        >{{option.name}}</option>
+        <option value="{{option.name}}">
+          {{option.name}}
+        </option>
       </ng-container>              
     </select>
   </div>

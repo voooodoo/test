@@ -22,7 +22,7 @@
       <input type="number" class="form-control" id="pages" formControlName="pages">
     </div>
 
-    <app-select [form] = "form" [item] = "data.formats.data" [nameControl]="'Format'"></app-select>
+    <app-select [form] = "form" [item] = "data.formats.data" [nameControl]="'format'"></app-select>
     <div class="form-group">
         <label for="description">Description</label>
         <textarea class="form-control" id="description" rows="3" formControlName="description"></textarea>
@@ -35,9 +35,9 @@
     <hr class="m-1 mb-5 mt-5">
 
     <h3 class="mb-4">Publisher Info</h3>
-    <app-select [form] = "form" [item] = "data.countries.data" [nameControl]="'Country'"></app-select>
-    <app-select [form] = "form" [item] = "data.cities.data" [nameControl]="'City'"></app-select>
-    <app-select [form] = "form" [item] = "data.companies.data" [nameControl]="'Company'"></app-select>
+    <app-select [form] = "form" [item] = "data.countries.data" [nameControl]="'country'"></app-select>
+    <app-select [form] = "form" [item] = "data.cities.data" [nameControl]="'city'"></app-select>
+    <app-select [form] = "form" [item] = "data.companies.data" [nameControl]="'company'"></app-select>
 
     <button type="submit" class="btn btn-primary mt-4"
     [disabled]="form.invalid"

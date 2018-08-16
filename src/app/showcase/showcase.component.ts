@@ -1,8 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { HttpService} from '../http.service';
-import { Book } from '../classes/book';
-import {Router} from '@angular/router';
-
+import { Book } from '../model/book';
 
 @Component({
   selector: 'app-showcase',
@@ -12,7 +10,7 @@ import {Router} from '@angular/router';
 export class ShowcaseComponent implements OnInit {
  
   urlBook: string;
-  dataBooks:Book[]; 
+  dataBooks: Book[]; 
 
   constructor(private httpService: HttpService) { 
     this.urlBook = 'http://localhost:3004/books'; 
@@ -23,6 +21,6 @@ export class ShowcaseComponent implements OnInit {
   }
 
   storeDataBooks(data) {
-    this.dataBooks=data
+    this.dataBooks = data
   }
 }

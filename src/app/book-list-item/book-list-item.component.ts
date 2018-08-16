@@ -1,17 +1,13 @@
-import { Component, OnInit, Input } from '@angular/core';
-import { Book } from '../classes/book'
+import { Component, Input } from '@angular/core';
+import { Book } from '../model/book'
 
 @Component({
   selector: 'app-book-list-item',
   templateUrl: './book-list-item.component.html'
 })
-export class BookListItem implements OnInit {
+export class BookListItem {
 
   @Input() book:Book;
 
   constructor() { }
-
-  ngOnInit() {
-  }
-
 }

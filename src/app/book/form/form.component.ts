@@ -55,12 +55,12 @@ data = {
       title:['',  Validators.required],
       isbn:['', Validators.required],
       pages: ['',Validators.required],
-      Format: ['', Validators.required],
+      format: ['', Validators.required],
       description: ['',Validators.required],
       price: ['', Validators.required],
-      Country: ['', Validators.required],
-      City: ['', Validators.required],
-      Company:['', Validators.required] 
+      country: ['', Validators.required],
+      city: ['', Validators.required],
+      company:['', Validators.required] 
     })
   }
   
@@ -83,8 +83,8 @@ data = {
   }
 
   setFormValue(id){
-      --id;
-      let book = this.data.books.data[id];
+      let index = id - 1;
+      let book = this.data.books.data[index];
       this.form.controls['author'].setValue(book.author);
       this.form.controls['title'].setValue(book.title);
       this.form.controls['isbn'].setValue(book.isbn);
@@ -92,21 +92,21 @@ data = {
       this.form.controls['description'].setValue(book.description);
       this.form.controls['price'].setValue(book.price);
       
-      let formatId = this.data.books.data[id].formatId;
+      let formatId = this.data.books.data[index].formatId;
       let format = this.data.formats.data[formatId-1].name;
-      this.form.controls['Format'].setValue(format);
+      this.form.controls['format'].setValue(format);
       
-      let countryId = this.data.books.data[id].countryId;
+      let countryId = this.data.books.data[index].countryId;
       let country = this.data.countries.data[countryId-1].name;  
-      this.form.controls['Country'].setValue(country);
+      this.form.controls['country'].setValue(country);
       
-      let cityId = this.data.books.data[id].cityId;
+      let cityId = this.data.books.data[index].cityId;
       let city = this.data.cities.data[cityId-1].name;
-      this.form.controls['City'].setValue(city);
+      this.form.controls['city'].setValue(city);
 
-      let companyId = this.data.books.data[id].companyId;
+      let companyId = this.data.books.data[index].companyId;
       let company = this.data.companies.data[companyId-1].name;
-      this.form.controls['Company'].setValue(company);
+      this.form.controls['company'].setValue(company);
   }
 
   onSubmit(form) {
